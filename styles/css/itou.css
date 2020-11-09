@@ -317,6 +317,10 @@ an input field being invalid, generating an uncontrolled red box-shadow. */
   box-shadow: none;
 }
 
+.logo-ministere-insertion {
+    max-width: 200px;
+}
+
 /* Old browsers.
 --------------------------------------------------------------------------- */
 
