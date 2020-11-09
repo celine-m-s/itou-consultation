@@ -196,25 +196,6 @@ body:after {
 /* Home.
 --------------------------------------------------------------------------- */
 
-section.home-search {
-    background: rgb(205,237,251);
-    background: linear-gradient(
-        180deg,
-        rgba(241, 219, 161, 1) 0%,
-        rgba(249, 242, 219, 1) 36%,
-        rgba(255,255,255,1) 100%
-    );
-}
-
-section.home-search .bg-image {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    display: block;
-    height: 17rem;
-    background-image: url('../../images/home-bg.svg');
-}
-
 .itou-main-nav a.active {
     background: #e2f2ff;
 }
