@@ -1,0 +1,350 @@
+/* Colors
+--------------------------------------------------------------------------- */
+/* Default Boostrap colors: */
+/* https://github.com/twbs/bootstrap/blob/master/dist/css/bootstrap.css#L7 */
+
+/* Add some Bootstrap colors available in SCSS as custom values. */
+/* Usage: var(--my-custom-value); */
+/* See https://developer.mozilla.org/en-US/docs/Web/CSS/--* */
+:root {
+    --gray-700: #495057;
+    --gray-900: #212529;
+}
+
+
+/* Layout.
+--------------------------------------------------------------------------- */
+
+body {
+    overflow-y: scroll;
+}
+
+html {
+    background: #343a40!important;
+    background: var(--gray-dark);
+}
+
+.layout {
+    /*
+    First and last columns are gutters, with a minimum size but the ability
+    to stretch to fill one unit of available space.
+    Between them is the main content column with the ability to stretch.
+    https://cloudfour.com/thinks/breaking-out-with-css-grid-layout/
+    https://rachelandrew.co.uk/archives/2017/06/01/breaking-out-with-css-grid-explained/
+    */
+    display: grid;
+    grid-template-columns:
+      [full-start] minmax(1em, 1fr)
+      [main-start] minmax(0, 1280px)
+      [main-end] minmax(1em, 1fr)
+      [full-end];
+}
+
+.layout > * {
+    grid-column: main;
+}
+
+.layout-section {
+    grid-column: full;
+    display: inherit;
+    grid-template-columns: inherit;
+}
+
+.layout-section > * {
+    grid-column: main;
+}
+
+.layout-column-full {
+    grid-column: full !important;
+}
+
+.layout-column-main {
+    grid-column: main !important;
+}
+
+.layout-section-white {
+    background: #fff;
+    color: #1c1c1c;
+}
+
+.layout-section-dark {
+    background: #26353f;
+    color: #fff;
+}
+
+/* Header.
+--------------------------------------------------------------------------- */
+
+header.layout-section {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.layout-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.layout-header-logo {
+    margin-right: 10px;
+}
+
+.layout-header-logo:focus,
+.layout-header-logo:active,
+.layout-header-logo:hover {
+    background: #e5e5e5;
+}
+
+.layout-header-content {
+    /* Align last flex item to right. */
+    margin-left: auto;
+}
+
+@media (max-width: 700px) {  /* For any browser < max-width. */
+
+    .layout-header {
+        display: block;
+    }
+
+    .layout-header-content {
+        margin-top: 10px;
+    }
+
+}
+
+/* Main.
+--------------------------------------------------------------------------- */
+
+main.layout-section {
+    padding: 2em 0;
+}
+
+@media (max-width: 700px) {  /* For any browser < max-width. */
+
+    main.layout-section {
+        padding: 0.5em 0;
+    }
+
+}
+
+/* Spacing.
+--------------------------------------------------------------------------- */
+
+.layout-content {
+    padding: 1rem 1rem 2rem 1rem;
+}
+
+.layout-content > .content-small {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.layout-footer {
+    padding: 1.4rem 1rem;
+}
+
+/* Messages. */
+
+.layout-messages .alert {
+    margin: 1.4rem 0;
+}
+
+/* Icons */
+
+a.with-icon span {
+    padding-left: 0.2rem;
+    vertical-align: sub;
+}
+
+/* Utilities */
+
+.underline {
+    border-bottom: 0.4rem solid #b594328c;
+    display: inline-block;
+    line-height: 0.9rem;
+}
+
+/* BETA banner.
+--------------------------------------------------------------------------- */
+
+body:after {
+    content: "BETA";
+    color: #fff;
+    background: #d63626;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.2rem 1.9rem;
+    position: fixed;
+    top: 0.3rem;
+    left: -1.8rem;
+    transform: rotate(-45deg);
+}
+
+/* Forms.
+--------------------------------------------------------------------------- */
+
+.form-group-required > label:first-of-type:after {
+    content: " *";
+    color: #d63626;
+}
+
+.select2-container {
+    display: block !important;
+}
+
+/* Home.
+--------------------------------------------------------------------------- */
+
+section.home-search {
+    background: rgb(205,237,251);
+    background: linear-gradient(
+        180deg,
+        rgba(241, 219, 161, 1) 0%,
+        rgba(249, 242, 219, 1) 36%,
+        rgba(255,255,255,1) 100%
+    );
+}
+
+section.home-search .bg-image {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: block;
+    height: 17rem;
+    background-image: url('../../images/home-bg.svg');
+}
+
+.itou-main-nav a.active {
+    background: #e2f2ff;
+}
+
+.svg-nav {
+    filter: invert(28%) sepia(100%) saturate(1782%) hue-rotate(199deg) brightness(101%) contrast(106%);
+    vertical-align: text-bottom;
+}
+
+.down-button-container {
+    background: rgb(1,1,1);
+    background: linear-gradient(
+        180deg,
+        rgba(1,1,1, 0) 0%,
+        rgba(1,1,1, 0.2) 20%,
+        rgba(1,1,1,0.7) 100%
+    );
+}
+
+.down-button-container img.icon {
+    height: 50px;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(316deg) brightness(104%) contrast(103%);
+}
+
+@media (max-width: 700px) {
+
+    section.home-search .bg-image {
+        height: 8rem;
+    }
+
+    section.home-search form {
+        width: 90% !important;
+    }
+
+}
+
+@media (min-width: 2000px) {
+    section.home-search .bg-image {
+        background-size: contain;
+        background-position: center;
+    }
+}
+
+/* Missing Boostrap utilities
+--------------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+    .fixed-sm-bottom {
+        position: fixed !important;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    /* Set width depending on a breaking point. */
+    .w-sm-25 {
+        width: 25% !important;
+    }
+
+    .w-sm-50 {
+        width: 50% !important;
+    }
+
+    .w-sm-75 {
+        width: 75% !important;
+    }
+
+    /* Reset width */
+    /* To be used with, for example, w-100 to have a with: 100%; only on mobile. */
+    .w-sm-auto {
+        width: auto !important;
+    }
+}
+
+.bg-gray-700 {
+    background-color: #495057; /* max-compatibility */
+    background-color: var(--gray-700);
+}
+
+.bg-gray-900 {
+    background-color: #212529; /* max-compatibility */
+    background-color: var(--gray-900);
+}
+
+a.disabled {
+    cursor: not-allowed !important;
+    color: #495057;
+    color: var(--gray-700);
+}
+
+a.disabled button, button.disabled {
+    cursor: not-allowed !important;
+    color: var(--grey);
+    border-color: var(--grey);
+}
+
+a.disabled button:hover, button.disabled:hover {
+    background-color: transparent;
+    color: inherit;
+    border-color: inherit;
+}
+
+/* Overrides opacity for disabled button (search cities) */
+.js-search-button {
+    opacity: 100% !important;
+}
+
+/* Browser-specific issues
+--------------------------------------------------------------------------- */
+/* Firefox applies `:-moz-ui-invalid` as soon as it considers
+an input field being invalid, generating an uncontrolled red box-shadow. */
+
+.home-search :not(output):-moz-ui-invalid:not(:focus) {
+  box-shadow: none;
+}
+
+.home-search :not(output):-moz-ui-invalid:-moz-focusring:not(:focus) {
+  box-shadow: none;
+}
+
+/* Old browsers.
+--------------------------------------------------------------------------- */
+
+.alert-old-browser {
+    display: none;
+}
+
+/* Target only IE 11. */
+/* https://stackoverflow.com/a/27315792 */
+_:-ms-fullscreen, :root .alert-old-browser {
+    display: block;
+}
